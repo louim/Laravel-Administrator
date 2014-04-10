@@ -13,12 +13,6 @@
     "support": {
         "issues": "https://github.com/FrozenNode/Laravel-Administrator/issues"
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/louim/Laravel-Administrator"
-        }
-    ],
     "require": {
         "php": ">=5.3.0",
         "laravel/framework": "4.*"
