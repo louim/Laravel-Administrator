@@ -39,36 +39,38 @@
 		</div>
 	</div>
 
-	<table class="results" border="0" cellspacing="0" id="customers" cellpadding="0">
-		<thead>
-			<tr>
-				<!-- ko foreach: columns -->
-					<th data-bind="visible: visible, css: {sortable: sortable,
-	'sorted-asc': (column_name == $root.sortOptions.field() || sort_field == $root.sortOptions.field()) && $root.sortOptions.direction() === 'asc',
-	'sorted-desc': (column_name == $root.sortOptions.field() || sort_field == $root.sortOptions.field()) && $root.sortOptions.direction() === 'desc'}">
-						<!-- ko if: sortable -->
-							<div data-bind="click: function() {$root.setSortOptions(sort_field ? sort_field : column_name)}, text: title"></div>
-						<!-- /ko -->
+	<div class="overflow-table">
+		<table class="results" border="0" cellspacing="0" id="customers" cellpadding="0">
+			<thead>
+				<tr>
+					<!-- ko foreach: columns -->
+						<th data-bind="visible: visible, css: {sortable: sortable,
+		'sorted-asc': (column_name == $root.sortOptions.field() || sort_field == $root.sortOptions.field()) && $root.sortOptions.direction() === 'asc',
+		'sorted-desc': (column_name == $root.sortOptions.field() || sort_field == $root.sortOptions.field()) && $root.sortOptions.direction() === 'desc'}">
+							<!-- ko if: sortable -->
+								<div data-bind="click: function() {$root.setSortOptions(sort_field ? sort_field : column_name)}, text: title"></div>
+							<!-- /ko -->
 
-						<!-- ko ifnot: sortable -->
-							<div data-bind="text: title"></div>
-						<!-- /ko -->
-					</th>
-				<!-- /ko -->
-			</tr>
-		</thead>
-		<tbody>
-			<!-- ko foreach: rows -->
-				<tr data-bind="click: function() {$root.clickItem($data[$root.primaryKey].raw); return true},
-							css: {result: true, even: $index() % 2 == 1, odd: $index() % 2 != 1,
-									selected: $data[$root.primaryKey].raw == $root.itemLoadingId()}">
-					<!-- ko foreach: $root.columns -->
-						<td data-bind="html: $parentContext.$data[column_name].rendered, visible: visible"></td>
+							<!-- ko ifnot: sortable -->
+								<div data-bind="text: title"></div>
+							<!-- /ko -->
+						</th>
 					<!-- /ko -->
 				</tr>
-			<!-- /ko -->
-		</tbody>
-	</table>
+			</thead>
+			<tbody>
+				<!-- ko foreach: rows -->
+					<tr data-bind="click: function() {$root.clickItem($data[$root.primaryKey].raw); return true},
+								css: {result: true, even: $index() % 2 == 1, odd: $index() % 2 != 1,
+										selected: $data[$root.primaryKey].raw == $root.itemLoadingId()}">
+						<!-- ko foreach: $root.columns -->
+							<td data-bind="html: $parentContext.$data[column_name].rendered, visible: visible"></td>
+						<!-- /ko -->
+					</tr>
+				<!-- /ko -->
+			</tbody>
+		</table>
+	</div>
 
 	<div class="loading_rows" data-bind="visible: loadingRows">
 		<div><?php echo trans('administrator::administrator.loading') ?></div>
