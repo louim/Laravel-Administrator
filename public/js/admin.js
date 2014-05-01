@@ -383,7 +383,7 @@
 				$('html, body').animate({scrollTop: 0}, 'fast')
 
 				//if this is a new item (id is falsy), just overwrite the viewModel with the original data model
-				if (!id)
+				if (!id || id == 'new')
 				{
 					self.setUpNewItem();
 					return;
@@ -1482,7 +1482,7 @@
 				size = window.getComputedStyle(document.body, ':after').getPropertyValue('content');
 
 			//resize the page height
-			$('#admin_page').css({minHeight: usedHeight});
+			$('#admin_page').css({minHeight: usedHeight-15});
 
 			//resize the data table
 			if (window.admin)
@@ -1519,15 +1519,8 @@
 				//if the datatable is visible and the table is large than its container
 				if (columns.length >= 2 && self.$dataTable.is(':visible') && (self.$tableContainer.width() < self.$dataTable.width()) )
 				{
-					//we don't want to hide all the columns
-					if (i <= 1)
-						return;
-					if (columns[i].visible())
-					{
-						columns[i].visible(false);
-						self.columnHidePoints[i] = winWidth;
-						break;
-					}
+					self.$dataTable.addClass('overflow');
+					break;
 				}
 			}
 		}
