@@ -1,8 +1,20 @@
 <div data-bind="visible: loadingItem" class="loading"><?php echo trans('administrator::administrator.loading') ?></div>
 
 <form class="edit_form" data-bind="visible: !loadingItem(), submit: saveItem">
-	<h2 data-bind="text: $root[$root.primaryKey]() ? '<?php echo trans('administrator::administrator.edit') ?>' :
-		'<?php echo trans('administrator::administrator.createnew') ?>'"></h2>
+	<?php 
+		try {
+			$editMessage = $config->getOption('customEdit');
+		} catch (Exception $e) {
+			$editMessage = trans('administrator::administrator.edit');
+		}
+		try {
+			$createMessage = $config->getOption('customCreate');
+		} catch (Exception $e) {
+			$createMessage = trans('administrator::administrator.createnew');
+		}
+	?>
+	<h2 data-bind="text: $root[$root.primaryKey]() ? '<?php echo $editMessage ?>' :
+			'<?php echo $createMessage ?>'"></h2>
 
 	<!-- ko if: $root[$root.primaryKey]() -->
 		<!-- ko if: $root.itemLink() -->
