@@ -500,9 +500,12 @@
 			/**
 			 * Closes the item edit/create window
 			 */
-			closeItem: function()
+			closeItem: function(message)
 			{
-				History.pushState({modelName: this.modelName()}, null, route + this.modelName());
+				//custom confirmation on close action
+				if (window.confirm(message)) { 
+					History.pushState({modelName: this.modelName()}, null, route + this.modelName());
+				}
 			},
 
 			/**

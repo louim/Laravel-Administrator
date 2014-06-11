@@ -234,7 +234,7 @@
 	<div class="control_buttons">
 		<!-- ko if: $root[$root.primaryKey]() -->
 			<input type="button" value="<?php echo trans('administrator::administrator.close') ?>"
-				data-bind="click: closeItem, attr: {disabled: $root.freezeForm() || $root.freezeActions()}" />
+				data-bind="click: closeItem.bind($data, '<?php echo trans('administrator::administrator.closeAlertMessage') ?>'), attr: {disabled: $root.freezeForm() || $root.freezeActions()}" />
 
 			<!-- ko if: actionPermissions.delete -->
 				<input type="button" value="<?php echo trans('administrator::administrator.delete') ?>"
@@ -249,7 +249,7 @@
 
 		<!-- ko ifnot: $root[$root.primaryKey]() -->
 			<input type="button" value="<?php echo trans('administrator::administrator.cancel') ?>"
-				data-bind="click: closeItem, attr: {disabled: $root.freezeForm() || $root.freezeActions()}" />
+				data-bind="click: closeItem.bind($data, '<?php echo trans('administrator::administrator.closeAlertMessage') ?>'), attr: {disabled: $root.freezeForm() || $root.freezeActions()}" />
 			<!-- ko if: actionPermissions.create -->
 				<input type="submit" value="<?php echo trans('administrator::administrator.create') ?>"
 					data-bind="attr: {disabled: $root.freezeForm() || $root.freezeActions()}" />

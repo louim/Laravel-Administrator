@@ -42,6 +42,7 @@ return array(
 	'active' => 'Just a moment...',
 	'success' => 'Success!',
 	'error' => 'There was an error performing this action',
+	'closeAlertMessage' => 'Are you sure that you want to cancel? All non saved information will be lost.',
 
 	'valid_columns' => "You must provide a valid 'columns' array in each model's config",
 	'valid_title' => "You must provide a valid title and single name in each model's config",

@@ -38,6 +38,7 @@ return array(
 	'save' => 'Modifier',
 	'create' => 'Créer',
 	'cancel' => 'Annuler',
+	'closeAlertMessage' => 'Êtes-vous certain de vouloir annuler? Toutes les données non enregistrées seront perdues.',
 
 	'active' => 'Juste un moment...',
 	'success' => 'Succès !',
