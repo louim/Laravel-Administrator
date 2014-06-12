@@ -73,7 +73,7 @@ View::composer(array('administrator::layouts.default'), function($view)
 	$view->css = array();
 	$view->js = array(
 		'jquery' => asset('packages/frozennode/administrator/js/jquery/jquery-1.8.2.min.js'),
-		'jquery-ui' => asset('packages/frozennode/administrator/js/jquery/jquery-ui-1.10.3.custom.min.js'),
+		'jquery-ui' => asset('packages/frozennode/administrator/js/jquery/jquery-ui-1.10.4.custom.min.js'),
 		'customscroll' => asset('packages/frozennode/administrator/js/jquery/customscroll/jquery.customscroll.js'),
 	);
 
